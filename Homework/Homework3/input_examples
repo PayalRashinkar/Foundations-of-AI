@@ -1,0 +1,363 @@
+1.
+FALSE
+Order(Jenny,Pizza)
+7
+Order(x,y) => Seated(x) & Stocked(y)
+Ate(x) => GetCheck(x)
+GetCheck(x) & Paid(x) => Leave(x)
+Seated(x) => Open(Restaurant) & Open(Kitchen)
+Stocked(Hamburger)
+Open(Restaurant)
+Open(Kitchen)
+
+2.
+TRUE
+Leave(Helena)
+11
+Seated(x) & Stocked(y) => Order(x,y)
+Order(x,y) => Ate(x)
+GetCheck(x) & HaveMoney(x) => Paid(x)
+Ate(x) => GetCheck(x)
+GetCheck(x) & Paid(x) => Leave(x)
+Open(Restaurant) & Open(Kitchen) => Seated(x)
+Stocked(Portabello) | Stocked(Tofu) => Stocked(VeganHamburger)
+Stocked(Portabello)
+Open(Restaurant)
+Open(Kitchen)
+HaveMoney(Helena)
+
+3.
+FALSE
+Order(Tim,Italian)
+15
+Seated(x) & Stocked(y) => Order(x,y)
+Order(x,y) => Ate(x)
+GetCheck(x) & HaveMoney(x) => Paid(x)
+Ate(x) => GetCheck(x)
+GetCheck(x) & Paid(x) => Leave(x)
+Open(Restaurant) & Open(Kitchen) => Seated(x)
+Stocked(Pasta) | Stocked(Pizza) => Stocked(Italian)
+Stocked(Flour) & Stocked(Cheese) => Stocked(Pizza)
+Stocked(Penne) & Stocked(Pesto) => Stocked(Pasta)
+Open(Restaurant)
+HaveMoney(Tim)
+HaveMoney(Lauren)
+Stocked(Penne)
+Stocked(Flour)
+Stocked(Cheese)
+
+4.
+TRUE
+Hangout(Leia,Teddy)
+45
+Likes(x,y) & Likes(y,x) | Meet(x,y,z) => Hangout(x,y)
+Leave(x,z) & Leave(y,z) => Meet(x,y,z)
+GetCheck(x,z) & Paid(x,z) => Leave(x,z)
+GetCheck(x,z) & HaveMoney(x) => Paid(x,z)
+Ate(x,y) => GetCheck(x,z)
+Order(x,y) & Good(y) => Ate(x,y)
+Seated(x,z) & Stocked(y,z) => Order(x,y)
+OpenRestaurant(z) & Open(Kitchen,z) & HasTable(z) => Seated(x,z)
+TableOpen(x,z) | TableOpen(y,z) => HasTable(z)
+HasIngredients(y,z) & Open(Kitchen,z) => Stocked(y,z)
+~Bad(x) => Good(x)
+Has(Dough,z) & Has(Cheese,z) => HasIngredients(CheesePizza,z)
+Has(Pasta,z) & Has(Pesto,z) => HasIngredients(PestoPasta,z)
+Has(Falafel,z) & Has(Hummus,z) => HasIngredients(FalafelPlate,z)
+Has(Rice,z) & Has(Lamb,z) => HasIngredients(LambPlate,z)
+Has(LadyFingers,z) & Has(Mascarpone,z) => HasIngredients(Tiramisu,z)
+Old(Cheese) | Burnt(CheesePizza) => Bad(CheesePizza)
+Moldy(Pesto) => Bad(PestoPasta)
+Bad(Lamb) | Soggy(Rice) => Bad(LambPlate)
+Has(Dough,Bestia)
+Has(Cheese,Bestia)
+Has(Cheese,Dune)
+Has(Pasta,Bestia)
+Has(Pesto,Bestia)
+Has(Falafel,Dune)
+Has(Hummus,Dune)
+Has(Rice,Dune)
+Has(Lamb,Dune)
+Has(LadyFingers,Bestia)
+Has(Mascarpone,Bestia)
+Burnt(CheesePizza)
+Soggy(Rice)
+~Bad(Tiramisu)
+Bad(Lamb)
+OpenRestaurant(Bestia)
+Open(Kitchen,Bestia)
+OpenRestaurant(Dune)
+Open(Kitchen,Dune)
+HaveMoney(Leia)
+HaveMoney(Teddy)
+Likes(Leia,Teddy)
+Likes(Leia,Mary)
+Likes(Teddy,Harry)
+Likes(Harry,Teddy)
+TableOpen(Patio,Bestia)
+
+5.
+TRUE
+MiniSudoku(Ac,D)
+27
+MiniSudoku(x,A) => ~MiniSudoku(x,B)
+MiniSudoku(x,A) => ~MiniSudoku(x,C)
+MiniSudoku(x,A) => ~MiniSudoku(x,D)
+MiniSudoku(x,B) => ~MiniSudoku(x,A)
+MiniSudoku(x,B) => ~MiniSudoku(x,C)
+MiniSudoku(x,B) => ~MiniSudoku(x,D)
+MiniSudoku(x,C) => ~MiniSudoku(x,A)
+MiniSudoku(x,C) => ~MiniSudoku(x,B)
+MiniSudoku(x,C) => ~MiniSudoku(x,D)
+MiniSudoku(x,D) => ~MiniSudoku(x,A)
+MiniSudoku(x,D) => ~MiniSudoku(x,B)
+MiniSudoku(x,D) => ~MiniSudoku(x,C)
+MiniSudoku(Aa,x) | MiniSudoku(Ab,x) | MiniSudoku(Ac,x) | MiniSudoku(Ad,x)
+MiniSudoku(Ba,x) | MiniSudoku(Bb,x) | MiniSudoku(Bc,x) | MiniSudoku(Bd,x)
+MiniSudoku(Ca,x) | MiniSudoku(Cb,x) | MiniSudoku(Cc,x) | MiniSudoku(Cd,x)
+MiniSudoku(Da,x) | MiniSudoku(Db,x) | MiniSudoku(Dc,x) | MiniSudoku(Dd,x)
+MiniSudoku(Aa,x) | MiniSudoku(Ba,x) | MiniSudoku(Ca,x) | MiniSudoku(Da,x)
+MiniSudoku(Ab,x) | MiniSudoku(Bb,x) | MiniSudoku(Cb,x) | MiniSudoku(Db,x)
+MiniSudoku(Ac,x) | MiniSudoku(Bc,x) | MiniSudoku(Cc,x) | MiniSudoku(Dc,x)
+MiniSudoku(Ad,x) | MiniSudoku(Bd,x) | MiniSudoku(Cd,x) | MiniSudoku(Dd,x)
+MiniSudoku(Aa,x) | MiniSudoku(Ab,x) | MiniSudoku(Ba,x) | MiniSudoku(Bb,x)
+MiniSudoku(Ca,x) | MiniSudoku(Cb,x) | MiniSudoku(Da,x) | MiniSudoku(Db,x)
+MiniSudoku(Aa,x) | MiniSudoku(Ab,x) | MiniSudoku(Ba,x) | MiniSudoku(Bb,x)
+MiniSudoku(Ca,x) | MiniSudoku(Cb,x) | MiniSudoku(Da,x) | MiniSudoku(Db,x)
+MiniSudoku(Aa,A) & MiniSudoku(Bb,B)
+MiniSudoku(Cc,C) & MiniSudoku(Dd,D)
+MiniSudoku(Cd,A) & MiniSudoku(Dc,B)
+
+
+6.
+FALSE
+A(Daphne)
+3
+B(x) & C(y,y,x) => A(Daphne)
+C(One,Two,Three)
+B(Three)
+
+7.
+FALSE
+A(Ficus,Iris)
+3
+~B(z,z,y) | ~C(w,w,x) | A(y,x)
+C(One,Two,Iris)
+B(One,Two,Ficus)
+
+8.
+TRUE
+A(Maackia,Lythrum,Myrica)
+4
+~B(x,y,z) | ~C(z,w,q) | ~D(q,u,x) | A(y, w, u)
+B(One,Maackia,Two)
+C(Two,Lythrum,Three)
+D(Three,Myrica,One)
+
+9.
+FALSE
+Leave(Charley)
+14
+Seated(x) & Stocked(y) => Order(x,y)
+Order(x,y) & Good(y) => Ate(x,y)
+Order(x,y) & Bad(y) => ~Ate(x,y)
+GetCheck(x) & HaveMoney(x) => Paid(x)
+Ate(x,y) => GetCheck(x)
+GetCheck(x) & Paid(y) => Leave(x)
+Open(Restaurant) & Open(Kitchen) => Seated(x)
+Stocked(Soup) & Stocked(Chicken) => Stocked(ChickenSoup)
+Stocked(Chicken)
+Bad(Chicken)
+Open(Restaurant)
+Open(Kitchen)
+~HaveMoney(Charley)
+HaveMoney(Bob)
+
+10.
+FALSE
+Leave(Charley)
+17
+Seated(x) & Stocked(y) => Order(x,y)
+Order(x,ChickenSoup) & Good(ChickenSoup) => Ate(x,ChickenSoup)
+Order(x,PepperChicken) & Good(PepperChicken) => Ate(x,PepperChicken)
+Order(x,y) & Bad(y) => ~Ate(x,y)
+GetCheck(x) & HaveMoney(x) => Paid(x)
+Ate(x,y) => GetCheck(x)
+GetCheck(x) & Paid(y) => Leave(x)
+Open(Restaurant) & Open(Kitchen) => Seated(x)
+Stocked(Soup) & Stocked(Chicken) => Stocked(ChickenSoup)
+Stocked(Chicken)
+Good(Chicken)
+Stocked(Pepper)
+Good(Pepper)
+Open(Restaurant)
+Open(Kitchen)
+~HaveMoney(Charley)
+HaveMoney(Bob)
+
+true
+Take(Alice,NSAIDs)
+2
+Take(x,Warfarin) => Take(x,NSAIDs)
+Take(Alice,Warfarin)
+
+
+1.
+true:
+Ancestor(Liz,Billy)
+6
+Mother(Liz,Charley)
+Father(Charley,Billy)
+~Mother(x,y) | Parent(x,y)
+~Father(x,y) | Parent(x,y)
+~Parent(x,y) | Ancestor(x,y)
+~Parent(x,y) | ~Ancestor(y,z) | Ancestor(x,z)
+
+2.
+false
+Ancestor(Liz,Bob)
+6
+Mother(Liz,Charley)
+Father(Charley,Billy)
+~Mother(x,y) | Parent(x,y)
+~Father(x,y) | Parent(x,y)
+~Parent(x,y) | Ancestor(x,y)
+~Parent(x,y) | ~Ancestor(y,z) | Ancestor(x,z)
+
+3.
+true
+H(John)
+14
+A(x) => H(x)
+D(x,y) => ~H(y)
+B(x,y) & C(x,y) => A(x)
+B(John,Alice)
+B(John,Bob)
+D(x,y) & Q(y) => C(x,y)
+D(John,Alice)
+Q(Bob)
+D(John,Bob)
+F(x) => G(x)
+G(x) => H(x)
+H(x) => F(x)
+R(x) => H(x)
+R(Tom)
+
+4.
+true
+~H(Alice)
+14
+A(x) => H(x)
+D(x,y) => ~H(y)
+B(x,y) & C(x,y) => A(x)
+B(John,Alice)
+B(John,Bob)
+D(x,y) & Q(y) => C(x,y)
+D(John,Alice)
+Q(Bob)
+D(John,Bob)
+F(x) => G(x)
+G(x) => H(x)
+H(x) => F(x)
+R(x) => H(x)
+R(Tom)
+
+5.
+true
+CB(Alice)
+39
+A(x) => B(x)
+C(x) => A(x)
+B(x) => C(x)
+AB(x,y) & BB(x,y,z) => CB(x)
+DB(a) => AB(x,y)
+DB(S)
+BB(Alice,A,A)
+BC(x,y) & CC(x,y) => AC(z)
+BC(John,Alice)
+BC(John,Bob)
+CC(John,Bob)
+American(x) & Weapon(y) & Sells(x,y,z) & Hostile(z) => Criminal(x)
+Owns(Nono, Mm)
+Missile(Mmm)
+Missile(x) & Owns(Nono,x) => Sells(West,x,Nono)
+Missile(x) => Weapon(x)
+Enemy(x,America) => Hostile(x)
+American(West)
+Enemy(Nono,America)
+DD(z,Bob) & AD(z,Bob) => CD(Bob,Alice)
+MD(y) & ED(y) => DD(James,Bob)
+MD(Amy)
+ED(Amy)
+AD(Jam,Bob)
+BE(John,y) & CE(John,y) => PE(John)
+BE(John,A)
+CE(John,B)
+AF(x,z) & BF(y,z) => CF(AA,BB,x)
+AF(CC,EE)
+BF(KK,LL)
+RG(x,x) => TG(S)
+EG(y) => RG(Bob,y)
+EG(B)
+DH(z,y) => HH(x)
+AH(x) => DH(x,x)
+AH(Bob)
+Buffalo(BOB)
+Pig(PAT)
+Buffalo(x) & Pig(y) => Faster(x,y)
+
+
+
+
+
+kai ki
+49
+~Likes(x,y) | ~Likes(y,x) | Hangout(x,y)
+~Meet(x,y,z) | Hangout(x,y)
+Leave(x,z) & Leave(y,z) => Meet(x,y,z)
+GetCheck(x,z) & Paid(x,z) => Leave(x,z)
+GetCheck(x,z) & HaveMoney(x) => Paid(x,z)
+Ate(x,y) => GetCheck(x,z)
+Order(x,y) & Good(y) => Ate(x,y)
+Seated(x,z) & Stocked(y,z) => Order(x,y)
+OpenRestaurant(z) & Open(Kitchen,z) & HasTable(z) => Seated(x,z)
+~TableOpen(x,z) | HasTable(z)
+~TableOpen(y,z) | HasTable(z)
+HasIngredients(y,z) & Open(Kitchen,z) => Stocked(y,z)
+~Bad(x) => Good(x)
+Has(Dough,z) & Has(Cheese,z) => HasIngredients(CheesePizza,z)
+Has(Pasta,z) & Has(Pesto,z) => HasIngredients(PestoPasta,z)
+Has(Falafel,z) & Has(Hummus,z) => HasIngredients(FalafelPlate,z)
+Has(Rice,z) & Has(Lamb,z) => HasIngredients(LambPlate,z)
+Has(LadyFingers,z) & Has(Mascarpone,z) => HasIngredients(Tiramisu,z)
+~Old(Cheese) | Bad(CheesePizza)
+~Burnt(CheesePizza) | Bad(CheesePizza)
+Moldy(Pesto) => Bad(PestoPasta)
+~Bad(Lamb) | Bad(LambPlate)
+~Soggy(Rice) | Bad(LambPlate)
+Has(Dough,Bestia)
+Has(Cheese,Bestia)
+Has(Cheese,Dune)
+Has(Pasta,Bestia)
+Has(Pesto,Bestia)
+Has(Falafel,Dune)
+Has(Hummus,Dune)
+Has(Rice,Dune)
+Has(Lamb,Dune)
+Has(LadyFingers,Bestia)
+Has(Mascarpone,Bestia)
+Burnt(CheesePizza)
+Soggy(Rice)
+~Bad(Tiramisu)
+Bad(Lamb)
+OpenRestaurant(Bestia)
+Open(Kitchen,Bestia)
+OpenRestaurant(Dune)
+Open(Kitchen,Dune)
+HaveMoney(Leia)
+HaveMoney(Teddy)
+Likes(Leia,Teddy)
+Likes(Leia,Mary)
+Likes(Teddy,Harry)
+Likes(Harry,Teddy)
+TableOpen(Patio,Bestia)
